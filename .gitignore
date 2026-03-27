@@ -1,3 +1,4 @@
-/data/raw/*
+data_raw/dicom/*
+data_raw/xml/*
 folder-structure.txt
 venv
