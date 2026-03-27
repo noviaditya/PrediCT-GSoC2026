@@ -2,6 +2,7 @@ data_raw/dicom/*
 data_raw/xml/*
 data_raw_backup/*
 data_canonical/*
+data_resampled/*
 folder-structure.txt
 venv
 scripts/__pycache__
