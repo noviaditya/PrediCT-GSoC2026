@@ -37,8 +37,10 @@ def flatten_dicom_folders(root_dir):
                     pass
 
 if __name__ == "__main__":
+    SCRIPT_DIR = Path(__file__).resolve().parent
+    PROJECT_ROOT = SCRIPT_DIR.parent
     # Update this to your exact patient root
-    DICOM_PATIENT_ROOT = r"C:\coca_project\data_raw\dicom\Gated_release_final\Gated_release_final\patient"
+    DICOM_PATIENT_ROOT = PROJECT_ROOT / "data_raw" / "dicom" / "Gated_release_final" / "Gated_release_final" / "patient"
     
     # It's always a good idea to have a backup or try on one folder first!
     flatten_dicom_folders(DICOM_PATIENT_ROOT)

@@ -88,5 +88,8 @@ class COCAResampler:
         print(f"\nResampling complete. Files saved to: {self.output_dir}")
 
 if __name__ == "__main__":
-    resampler = COCAResampler(r"C:\coca_project", target_spacing=[.7, .7, 3.0])
+    SCRIPT_DIR = Path(__file__).resolve().parent
+    PROJECT_ROOT = SCRIPT_DIR.parent
+
+    resampler = COCAResampler(str(PROJECT_ROOT), target_spacing=[.7, .7, 3.0])
     resampler.run()

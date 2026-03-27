@@ -30,8 +30,8 @@ def main():
     print("="*50)
 
     # 1. Configuration
-    default_root = r"C:\coca_project"
-    project_root = input(f"Project Root [{default_root}]: ").strip() or default_root
+    project_root = SCRIPT_DIR.parent
+    print(f"Using project root: {project_root}")
     
     # 2. Execution Logic
     print("\n1) Full Pipeline\n2) Process Only\n3) Resample Only")

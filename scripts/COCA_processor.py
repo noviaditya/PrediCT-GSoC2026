@@ -163,5 +163,8 @@ if __name__ == "__main__":
     # This part only runs if you run COCA_processor.py DIRECTLY.
     # It will NOT run when imported by your pipeline script.
     print("Running Processor in standalone mode...")
-    processor = COCAProcessor(r"C:\coca_project")
+    SCRIPT_DIR = Path(__file__).resolve().parent
+    PROJECT_ROOT = SCRIPT_DIR.parent
+
+    processor = COCAProcessor(str(PROJECT_ROOT))
     processor.process_all()
