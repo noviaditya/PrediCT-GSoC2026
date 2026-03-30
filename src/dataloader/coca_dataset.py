@@ -1,7 +1,7 @@
 import SimpleITK as sitk
 import numpy as np
 from pathlib import Path
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, DataLoader
 
 from src.preprocessing.hu_window import hu_window
 
@@ -36,3 +36,13 @@ class COCADataset(Dataset):
             "mask": seg,
             "id": scan_id
         }
+
+def create_dataloader(folders, batch_size=2, shuffle=True, num_workers=4, pin_memory=True, apply_window=True):
+    dataset = COCADataset(folders, apply_window=apply_window)
+    return DataLoader(
+        dataset, 
+        batch_size=batch_size, 
+        shuffle=shuffle, 
+        num_workers=num_workers,
+        pin_memory=pin_memory
+    )
