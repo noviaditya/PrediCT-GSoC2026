@@ -17,6 +17,13 @@ As a backend engineer, I am more familiar with backend technologies such as data
     source venv/bin/activate
     ```
 4. Install required library using command `pip install -r requirements.txt`
+5. Run scripts provided in order
+    ```
+    python scripts/unnester.py
+    python scripts/COCA_processor.py
+    python scripts/COCA_resampler.py
+    python run_pipeline.py
+    ``` 
 
 # COMMON TASK : COCA DATASET PREPROCESSING
 I have adjust the predefined pipeline scripts tailored to the current repository. HU windowing is applied inside the dataloader to intensify calcium. I did not apply augmentation since its sensitive for radiomics and could impact on feature extraction. Stratified splitting was used to maintain class balance across train, validation, and test sets. Here is the flow : 
@@ -42,4 +49,19 @@ train / val / test CSV
 coca_dataset.py (DataLoader)
         ↓
     - HU windowing (inside)
+```
+
+# DATASET STATISTICS
+after running `python run_pipeline.py`, you can find the dataset statistics in `outputs/stats.json`. Here is the result from Standford COCA Dataset :
+```
+{
+  "total_samples": 787,
+  "positive_cases": 447,
+  "negative_cases": 340,
+  "ratio_normal_to_disease": "340:447",
+  "mean_hu": 291.761564935583,
+  "std_hu": 166.5802189973302,
+  "min_hu": 131.0,
+  "max_hu": 2000.0
+}
 ```
