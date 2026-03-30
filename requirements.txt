@@ -4,3 +4,4 @@ SimpleITK
 opencv-python
 tqdm
 torch
+scikit-learn

@@ -10,10 +10,13 @@ As a backend engineer, I am more familiar with backend technologies such as data
     ```
     sudo apt update
     sudo apt install python3.12-venv
+    ```
+3. Then activate venv inside your project folder    
+    ```
     python3 -m venv venv
     source venv/bin/activate
     ```
-3. Install required library using command `pip install -r requirements.txt`
+4. Install required library using command `pip install -r requirements.txt`
 
 # COMMON TASK : COCA DATASET PREPROCESSING
 I have adjust the predefined pipeline scripts tailored to the current repository. HU windowing is applied inside the dataloader to intensify calcium. I did not apply augmentation since its sensitive for radiomics and could impact on feature extraction. Stratified splitting was used to maintain class balance across train, validation, and test sets. Here is the flow : 
