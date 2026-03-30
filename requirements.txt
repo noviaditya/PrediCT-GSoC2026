@@ -9,3 +9,4 @@ pyradiomics
 scipy
 seaborn
 jupyter
+versioneer
