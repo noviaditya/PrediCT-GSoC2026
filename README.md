@@ -1,6 +1,9 @@
 # OVERVIEW
 This repository is used for my submission to PrediCT Projects on Google Summer of Code 2026
 
+# INTRODUCTION
+As a backend engineer, I am more familiar with backend technologies such as databases, APIs, and system architecture. However, I am also interested in machine learning and data science, and also medical topic which help treat disease. I believe that this project is a great opportunity to learn more about these topics.
+
 # GUIDELINE
 1. Insert all dataset inside `data_raw` directory
 2. *IF USING LINUX* : I am using Linux Ubuntu which blocking to run `pip` directly on host machine. You could use this command to install `venv` (virtual environment) first to run pip on your linux/ubuntu machine if its blocked. 
@@ -12,8 +15,9 @@ This repository is used for my submission to PrediCT Projects on Google Summer o
     ```
 3. Install required library using command `pip install -r requirements.txt`
 
-
-# DATA PIPELINE
+# COMMON TASK : COCA DATASET PREPROCESSING
+I have adjust the predefined pipeline scripts tailored to the current repository. HU windowing is applied inside the dataloader to intensify calcium. I did not apply augmentation since its sensitive for radiomics and could impact on feature extraction. Stratified splitting was used to maintain class balance across train, validation, and test sets. Here is the flow : 
+```
 RAW DATA (DICOM + XML)
         ↓
 unnester.py
@@ -35,3 +39,4 @@ train / val / test CSV
 coca_dataset.py (DataLoader)
         ↓
     - HU windowing (inside)
+```
