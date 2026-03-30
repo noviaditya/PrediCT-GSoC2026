@@ -5,3 +5,7 @@ opencv-python
 tqdm
 torch
 scikit-learn
+pyradiomics
+scipy
+seaborn
+jupyter
