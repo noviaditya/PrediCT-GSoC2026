@@ -14,6 +14,10 @@ def main():
         print(f"[ERROR] Cannot find index CSV at {csv_path}.")
         return
 
+    print("=" * 50)
+    print("      COMMON TASK PIPELINE RUNTIME")
+    print("=" * 50)
+
     print("\n[INFO] Computing dataset-level statistics...")
     # Read the full dataset index before splitting
     df = pd.read_csv(csv_path)
@@ -39,7 +43,7 @@ def main():
     
     print(f"DataLoaders mapped successfully. (Train batches: {len(train_loader)})")
 
-    print("\n[DONE] Common Task Pipeline Ready.\n")
+    print("\n[DONE] Common Task Pipeline Ready!\n")
 
 if __name__ == "__main__":
     main()
