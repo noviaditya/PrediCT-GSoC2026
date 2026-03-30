@@ -52,7 +52,8 @@ coca_dataset.py (DataLoader)
 ```
 
 # DATASET STATISTICS
-after running `python run_pipeline.py`, you can find the dataset statistics in `outputs/stats.json`. Here is the result from Standford COCA Dataset :
+After running `python run_pipeline.py`, you can find the dataset statistics in `outputs/stats.json`. Here is the result from Standford COCA Dataset : 
+*(ROI filter using mask > 0 and HU >= 130)*
 ```
 {
   "total_samples": 787,
