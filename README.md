@@ -11,3 +11,27 @@ This repository is used for my submission to PrediCT Projects on Google Summer o
     source venv/bin/activate
     ```
 3. Install required library using command `pip install -r requirements.txt`
+
+
+# DATA PIPELINE
+RAW DATA (DICOM + XML)
+        ↓
+unnester.py
+        ↓
+COCA_processor.py
+        ↓
+data_canonical (NIfTI + mask + metadata)
+        ↓
+COCA_resampler.py
+        ↓
+data_resampled
+        ↓
+stats.py (dataset-level)
+        ↓
+stratified_split.py
+        ↓
+train / val / test CSV
+        ↓
+coca_dataset.py (DataLoader)
+        ↓
+    - HU windowing (inside)
