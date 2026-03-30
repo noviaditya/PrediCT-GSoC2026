@@ -18,7 +18,7 @@ def main():
     # Read the full dataset index before splitting
     df = pd.read_csv(csv_path)
     all_folders = [Path(p) for p in df["folder_path"]]
-    full_dataset = COCADataset(all_folders)
+    full_dataset = COCADataset(all_folders, apply_window=False)
     compute_stats(full_dataset)
 
     print("\n[INFO] Creating stratified splits...")
