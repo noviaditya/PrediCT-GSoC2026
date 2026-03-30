@@ -12,6 +12,9 @@ def compute_stats(dataset, output_path="outputs/stats.json"):
         mask = item["mask"]
 
         roi_pixels = img[mask > 0]
+        # Remove invalid values (ensure strictly calcium based on CT physical properties, calcium > 130 HU)
+        roi_pixels = roi_pixels[roi_pixels > 130]
+        
         if len(roi_pixels) > 0:
             all_pixels.extend(roi_pixels.flatten())
 
