@@ -17,7 +17,7 @@ As a backend engineer, I am more familiar with backend technologies such as data
     source venv/bin/activate
     ```
 4. Install required library using command `pip install -r requirements.txt`
-5. Run scripts provided in order
+5. For COMMON TASK commands, Run scripts provided in order
     ```
     python scripts/unnester.py
     python scripts/COCA_processor.py
