@@ -66,3 +66,26 @@ After running `python run_pipeline.py`, you can find the dataset statistics in `
   "max_hu": 2000.0
 }
 ```
+
+# PROJECT 2 : RADIOMICS FEATURE EXTRACTION
+I have created pipeline for specific Project 2 task including `agatston` score calculation and `pyradiomics` feature extraction. Here is the flow :
+```
+data_canonical
+        ↓
+run_project2.py
+        ↓
+    - compute_dataset_agatston()
+    - extract_radiomics()
+        ↓
+outputs/agatston_scores.csv
+outputs/radiomics_features.csv
+```
+using Jupyter notebook from `radiomics_analysis.ipynb`, we can visualize the features and also perform statistical analysis. Here is the result from Standford COCA Dataset :
+
+## Kruskal-Wallis H-test
+Kruskal-Wallis Variance (original_shape_Sphericity): H-statistic=14.852, p-value=0.00195
+
+**Significant! Phenotype is clinically intertwined with Agatston Severity**
+
+## t-SNE Plot
+![t-SNE Plot](outputs/images/tsne_plot.png)
