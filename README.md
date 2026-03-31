@@ -27,7 +27,7 @@ As a backend engineer, I am more familiar with backend technologies such as data
 6. After all common task commands done, to run Project 2 pipeline, run `python run_project2.py`
 
 # COMMON TASK : COCA DATASET PREPROCESSING
-I have adjust the predefined pipeline scripts tailored to the current repository. HU windowing is applied inside the dataloader to intensify calcium. I did not apply augmentation since its sensitive for radiomics and could impact on feature extraction. Stratified splitting was used to maintain class balance across train, validation, and test sets. Here is the flow : 
+I have adjust the predefined pipeline scripts tailored to the current repository. HU windowing is applied inside the dataloader to intensify calcium. Stratified splitting was used to maintain class balance across train, validation, and test sets. Here is the flow : 
 ```
 RAW DATA (DICOM + XML)
         ↓
@@ -67,6 +67,8 @@ After running `python run_pipeline.py`, you can find the dataset statistics in `
   "max_hu": 2000.0
 }
 ```
+From the statistic result, we could see that the dataset is balanced, with ratio 340:447 (normal:disease). Furthermore, since dataset is small, I did not apply balancing technique such as oversampling or undersampling. The average HU around ~292 with a wide range up to 2000 shows that the dataset includes both low-density and very dense calcium, which is useful for further analysis. I did not do augmentation since its sensitive for radiomics and could impact on feature extraction that related with Project 2.
+
 
 # PROJECT 2 : RADIOMICS FEATURE EXTRACTION
 I have created pipeline for specific Project 2 task including `agatston` score calculation and `pyradiomics` feature extraction. Here is the flow :
