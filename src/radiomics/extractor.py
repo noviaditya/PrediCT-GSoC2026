@@ -20,7 +20,7 @@ def configure_extractor():
     extractor.enableFeaturesByName(shape=['Sphericity', 'SurfaceVolumeRatio', 'Maximum3DDiameter'])
 
     extractor.enableFeatureClassByName('glcm')
-    extractor.enableFeaturesByName(glcm=['Contrast', 'Correlation', 'InverseDifferenceMoment'])
+    extractor.enableFeaturesByName(glcm=['Contrast', 'Correlation', 'Idm'])
 
     extractor.enableFeatureClassByName('glszm')
     extractor.enableFeaturesByName(glszm=['SmallAreaEmphasis', 'LargeAreaEmphasis', 'ZonePercentage'])
@@ -40,9 +40,10 @@ def extract_radiomics(canonical_dir, output_csv="outputs/radiomics_features.csv"
     extractor = configure_extractor()
     all_features = []
 
-    # Process roughly 20-30 images as stated in Project 2 Goal (or entire set if small)
+    successful_extractions = 0
+    # Process roughly 20-30 images as stated in Project 2 Goal (skip empty masks until we have 30 successes)
     for index, folder_path in tqdm(df.iterrows(), desc="Extracting Radiomics Textures", total=len(df)):
-        if index >= 30: # Limit exactly to Project 2's request of "20-30 COCA scans"
+        if successful_extractions >= 30: # Limit exactly to Project 2's request of "20-30 COCA scans"
             break
             
         folder = Path(folder_path["folder_path"])
@@ -62,8 +63,10 @@ def extract_radiomics(canonical_dir, output_csv="outputs/radiomics_features.csv"
                         cleaned_result[key] = val
 
                 all_features.append(cleaned_result)
+                successful_extractions += 1
             except Exception as e:
-                print(f"Skipping {scan_id} due to Exception: {e}")
+                # Ignore scans with absolutely zero labels (healthy patients) or other extraction errors
+                pass
 
     results_df = pd.DataFrame(all_features)
     Path(output_csv).parent.mkdir(parents=True, exist_ok=True)
