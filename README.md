@@ -24,6 +24,7 @@ As a backend engineer, I am more familiar with backend technologies such as data
     python scripts/COCA_resampler.py
     python run_pipeline.py
     ``` 
+6. After all common task commands done, to run Project 2 pipeline, run `python run_project2.py`
 
 # COMMON TASK : COCA DATASET PREPROCESSING
 I have adjust the predefined pipeline scripts tailored to the current repository. HU windowing is applied inside the dataloader to intensify calcium. I did not apply augmentation since its sensitive for radiomics and could impact on feature extraction. Stratified splitting was used to maintain class balance across train, validation, and test sets. Here is the flow : 
