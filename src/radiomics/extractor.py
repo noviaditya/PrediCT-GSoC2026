@@ -59,7 +59,7 @@ def extract_radiomics(canonical_dir, output_csv="outputs/radiomics_features.csv"
                 # Filter out diagnostic text outputs
                 cleaned_result = {"scan_id": scan_id}
                 for key, val in result.items():
-                    if "diagnostic_" not in key:
+                    if key.startswith("original_"):
                         cleaned_result[key] = val
 
                 all_features.append(cleaned_result)
