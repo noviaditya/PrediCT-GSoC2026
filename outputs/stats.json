@@ -1,0 +1,10 @@
+{
+  "total_samples": 787,
+  "positive_cases": 447,
+  "negative_cases": 340,
+  "ratio_normal_to_disease": "340:447",
+  "mean_hu": 291.761564935583,
+  "std_hu": 166.5802189973302,
+  "min_hu": 131.0,
+  "max_hu": 2000.0
+}
