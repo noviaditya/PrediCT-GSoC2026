@@ -89,3 +89,5 @@ Kruskal-Wallis Variance (original_shape_Sphericity): H-statistic=14.852, p-value
 
 ## t-SNE Plot
 ![t-SNE Plot](outputs/images/tsne_plot.png)
+
+From the t-SNE plot, we can see that some patients with high risk (≥400) tend to group together, while low-risk patients (1–99) are more spread out. This means the radiomics features are able to capture some pattern related to disease severity, even though the groups are not perfectly separated.
